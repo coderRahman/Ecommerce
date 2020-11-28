@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Insert";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="border backgroundWhite container">
+    <div class="row">
+        <div class="col-6">
+            <h2 class="text-primary">Menu Item List</h2>
+        </div>
+        <div class="col-6 text-right">
+            <a asp-action="Create" class="btn btn-primary"><i class="fas fa-plus"></i> &nbsp; Create New</a>
+        </div>
+    </div>
+    <br /><br />
+    <table id="DT_load" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Food Type</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+<div>
+    <h1 class="text-danger"> Access Denied</h1>
+</div>}
+@section Scripts{
+    <script src="~/js/menuItem.js"></script>
+}
+

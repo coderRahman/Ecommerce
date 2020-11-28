@@ -1,0 +1,87 @@
+﻿@model Ecommerce.ViewModels.MenuItemVM;
+@{
+    ViewData["Title"] = "Insert";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<form method="post" asp-action="Create" enctype="multipart/form-data">
+    <div class="container">
+        <div class="row px-2 mx-2 backgroundWhite border">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="col-12 px-3" style="border-bottom:1px solid #325d88">
+                <h2 class="text-primary">Create Menu Item</h2>
+            </div>
+            <div class="col-8 pt-3">
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label asp-for="MenuItem.Name"></label>
+                    </div>
+                    <div class="col-9">
+                        <input class="form-control" asp-for="MenuItem.Name" />
+                        <span class="text-danger" asp-validation-for="MenuItem.Name"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label asp-for="MenuItem.Price"></label>
+                    </div>
+                    <div class="col-9">
+                        <input class="form-control" asp-for="MenuItem.Price" />
+                        <span class="text-danger" asp-validation-for="MenuItem.Price"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label asp-for="MenuItem.Description"></label>
+                    </div>
+                    <div class="col-9">
+                        <textarea class="form-control" asp-for="MenuItem.Description" id="txtDesc" style="height:200px;"></textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label asp-for="MenuItem.Image"></label>
+                    </div>
+                    <div class="col-9">
+                        <input type="file" class="form-control" name="files" id="uploadBox" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label asp-for="MenuItem.CategoryId"></label>
+                    </div>
+                    <div class="col-9">
+                        @Html.DropDownListFor(m => m.MenuItem.CategoryId,
+                                                     Model.CategoryList,
+                                                     "- Please select a Category -",
+                                                     new { @class = "form-control" })
+                        <span class="text-danger" asp-validation-for="MenuItem.CategoryId"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label asp-for="MenuItem.FoodTypeId"></label>
+                    </div>
+                    <div class="col-9">
+                        @Html.DropDownListFor(m => m.MenuItem.FoodTypeId,
+                                                     Model.FoodTypeList,
+                                                     "- Please select a Food Type -",
+                                                     new { @class = "form-control" })
+                        <span class="text-danger" asp-validation-for="MenuItem.FoodTypeId"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-9 offset-3">
+                        <div class="row">
+                            <div class="col-6">                   
+                <button type="submit" onclick="return ValidateInput()" class="btn btn-primary form-control">Create</button>
+                            </div>
+                            <div class="col-6">
+                                <a  class="btn btn-success form-control">Back to List</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
